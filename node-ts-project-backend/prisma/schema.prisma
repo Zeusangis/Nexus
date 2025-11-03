@@ -1,0 +1,106 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ATHELETE
+  COACH
+}
+
+enum Gender {
+  MALE
+  FEMALE
+}
+
+enum RiskLevel {
+  LOW
+  MEDIUM
+  HIGH
+}
+
+model User {
+  id           String  @id @default(cuid())
+  fullName     String
+  email        String  @unique
+  password     String
+  role         Role    @default(ATHELETE)
+  isActive     Boolean @default(true)
+  isStaff      Boolean @default(false)
+  isSuperuser  Boolean @default(false)
+  profileImage String? @default("profile/default.png")
+
+  athleteProfile  AthleteProfile?
+  athletesCoached CoachAthleteRelationship[] @relation("CoachRelation")
+  assignedCoach   CoachAthleteRelationship[] @relation("AthleteRelation")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("user")
+}
+
+model SportsCategory {
+  id       String           @id @default(cuid())
+  name     String           @unique
+  athletes AthleteProfile[]
+
+  @@map("sports_category")
+}
+
+model AthleteProfile {
+  id        String    @id @default(cuid())
+  userId    String    @unique 
+  age       Int       @default(18)
+  gender    Gender    @default(MALE)
+  height    Float     @default(0.0)
+  weight    Float     @default(0.0)
+  bmi       Float     @default(0.0)
+  riskLevel RiskLevel @default(LOW)
+  sportId   String?
+  riskScore Float     @default(0.0)
+  trainingType String    @default("General")
+  experienceLevel String @default("Beginner")
+  limitations   String? @default("None")
+
+  user      User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  sport     SportsCategory? @relation(fields: [sportId], references: [id])
+  dailyLogs DailyLog[]
+
+  @@map("athlete_profile")
+}
+
+model CoachAthleteRelationship {
+  id           String   @id @default(cuid())
+  coachId      String
+  athleteId    String
+  assignedDate DateTime @default(now())
+
+  coach   User @relation("CoachRelation", fields: [coachId], references: [id])
+  athlete User @relation("AthleteRelation", onDelete: Cascade, fields: [athleteId], references: [id])
+
+  @@unique([coachId, athleteId])
+  @@map("coach_athlete_relationship")
+}
+
+model DailyLog {
+  id                String   @id @default(cuid())
+  athleteId         String
+  date              DateTime @default(now())
+  kneePain          Int      @default(0)
+  legFreshness      Int      @default(0)
+  sleepHours        Float    @default(0.0)
+  trainingIntensity Int      @default(0)
+  aclInjuryScore    Float    @default(0.0)
+  stiffnessLevel    Int      @default(0)
+  calorieIntake     Float    @default(0.0)
+
+  athlete AthleteProfile @relation(fields: [athleteId], references: [id])
+
+  @@index([athleteId])
+  @@map("daily_log")
+}

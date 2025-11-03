@@ -1,0 +1,21 @@
+export const MOCK_USER = {
+  id: "",
+  fullName: "Alex Johnson",
+  email: "alex.johnson@example.com",
+  role: "ATHLETE",
+  athleteProfile: {
+    id: "mock-profile-id",
+    userId: "",
+    age: 24,
+    gender: "FEMALE",
+    height: 168,
+    weight: 62,
+    bmi: 22,
+    riskLevel: "Low",
+    sportId: "mock-sport-id",
+    riskScore: 0,
+    trainingType: "General",
+    experienceLevel: "Beginner",
+    limitations: "None",
+  },
+};

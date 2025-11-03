@@ -558,7 +558,7 @@ model DailyLog {
 
 
 
-## 🧩 Core Components
+## 🧩 AI Core Components
 
 ### 1. 💬 Gemini Chat Assistant  
 An intelligent conversational interface built using **LangChain** and **Google Gemini**.  
@@ -586,7 +586,7 @@ A **MediaPipe-powered** computer vision system that detects abnormal or extreme 
 
 ---
 
-## 🧠 Tech Stack
+## 🧠 AI Tech Stack
 
 | Component | Technology |
 |------------|-------------|
@@ -647,30 +647,36 @@ Contributions are welcome! Please follow these steps:
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 👨‍💻 Author
-
-**Unish Khadka**
-
-- GitHub: [@Zeusangis](https://github.com/Zeusangis)
-
-## 🙏 Acknowledgments
-
-- MediaPipe by Google for pose detection
-- shadcn/ui for beautiful UI components
-- Prisma for excellent database tooling
-- Next.js team for the amazing framework
-- All open-source contributors
-
-## 📞 Support
-
-For support, email unishkhadka@example.com or open an issue on GitHub.
 
 ---
 
-⭐ Star this repo if you find it helpful!
+## 📝 License
+This project is licensed under the **MIT License** – see the [LICENSE](LICENSE) file for details.
 
-Made with ❤️ by Unish Khadka
+---
+
+## 👨‍💻 Authors
+**Unish Khadka**  
+- GitHub: [@Zeusangis](https://github.com/Zeusangis)
+
+**Dipesh Sharma**  
+- GitHub: [@bdipesh3045](https://github.com/bdipesh3045)
+
+---
+
+## 🙏 Acknowledgments
+- MediaPipe by Google  
+- shadcn/ui  
+- Prisma  
+- Next.js team  
+- All open-source contributors  
+
+---
+
+## 📞 Support
+For support, email **unishkhadka@example.com** or open an issue on GitHub.
+
+---
+
+⭐ **Star this repo if you find it helpful!**  
+Made with ❤️ by **Unish Khadka & Dipesh Sharma**

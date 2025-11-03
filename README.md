@@ -553,6 +553,50 @@ model DailyLog {
 - **SQL Injection Prevention** - Prisma ORM parameterized queries
 - **XSS Protection** - React's built-in XSS prevention
 - **Environment Variables** - Sensitive data protection
+- 
+
+
+
+
+## 🧩 Core Components
+
+### 1. 💬 Gemini Chat Assistant  
+An intelligent conversational interface built using **LangChain** and **Google Gemini**.  
+- Uses a connected **data store** to generate insights and recommendations.  
+- Provides **context-aware feedback** based on player metrics and model predictions.  
+- Acts as the communication bridge between the user and other AI modules.
+
+---
+
+### 2. ⚙️ ACL Risk Prediction Model  
+A **Logistic Regression** model developed with **Scikit-learn**.  
+- Trained on publicly available athlete datasets.  
+- Accepts data from both:
+  - **Client input** (e.g., player stats, demographics)
+  - **Computer vision features** (knee flexion, trunk lean, pelvis obliquity, time of contact)  
+- Outputs the **probability of ACL injury risk** and classifies the player’s state accordingly.
+
+---
+
+### 3. 🎥 Video-Based ACL Detection  
+A **MediaPipe-powered** computer vision system that detects abnormal or extreme movements in athletes during exercises and warmups.  
+- Utilizes **pose estimation** to extract motion data in real time.  
+- Computes biomechanical metrics for the ML model.  
+- Helps identify patterns that may lead to ACL strain or injury.
+
+---
+
+## 🧠 Tech Stack
+
+| Component | Technology |
+|------------|-------------|
+| Conversational AI | Gemini + LangChain |
+| Machine Learning | Scikit-learn |
+| Computer Vision | MediaPipe |
+| Data Processing | Python, NumPy, Pandas |
+
+---
+
 
 ## 🎨 UI/UX Features
 
